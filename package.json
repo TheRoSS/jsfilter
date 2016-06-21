@@ -1,9 +1,16 @@
 {
   "name": "jsfilter",
   "version": "1.0.0",
-  "engines": {"node": ">=0.10"},
-  "author": "Alexey Chistyakov",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "author": {
+    "name": "Alexey V. Chistyakov",
+    "email": "ross@newmail.ru"
+  },
   "description": "Match an object against a mongodb like filter with custom operators support",
+  "homepage": "https://github.com/TheRoSS/jsfilter",
+
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -17,6 +24,21 @@
     "chai": "*",
     "moment": "*"
   },
+
+  "bugs": {
+    "url": "https://github.com/TheRoSS/jsfilter/issues"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRoSS/jsfilter.git"
+  },
+
+  "keywords": [
+    "json",
+    "filter",
+    "mongodb"
+  ],
 
   "license": "MIT"
 }
