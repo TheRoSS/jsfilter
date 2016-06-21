@@ -10,6 +10,7 @@ There is a support for creation of the user defined filter operators.
 ### [Usage](#useFilter)
 
 [__Common usage__](#usage)
+
 [__Filter definition object__](#fdo)
 
 ### [Custom operator creation](#createFilter)
@@ -57,9 +58,11 @@ __Logical operators__
 
 
 <a id="useFilter" />
+
 ## Usage
 
 <a id="usage" />
+
 ### Common usage:
 
 The filter can be defined as JSON string:
@@ -93,6 +96,7 @@ if (filter.match(document)) {
 ```
 
 <a id="fdo" />
+
 ### Filter definition object
 
 The filter definition object is a plain javascript object.
@@ -142,6 +146,7 @@ __document example:__
 
 
 <a id="createFilter" />
+
 ## Custom operator creation
 
 To create your own filter operator your have to: 
@@ -238,10 +243,12 @@ The fields of this object are:
 
 
 <a id="filters" />
+
 ## Built-in operators
 
 
 <a id="$empty" />
+
 __$empty__
 
 Checks whether the context is an _empty_ value
@@ -263,6 +270,7 @@ The next values are considered to be _empty_:
 - {}
 
 <a id="$exists" />
+
 __$exists__
 
 Checks whether the field exists in the document (check for _undefined_)
@@ -274,6 +282,7 @@ Checks whether the field exists in the document (check for _undefined_)
 ```
 
 <a id="$eq" />
+
 __$eq__
 
 Checks for non-strict equality. Arrays and objects are compared recursively.
@@ -297,6 +306,7 @@ This form will be converted to full operator form internally.
 ```
 
 <a id="$ne" />
+
 __$ne__
 
 Checks for non-strict equality (not equal to). Arrays and objects are compared recursively.
@@ -308,6 +318,7 @@ Checks for non-strict equality (not equal to). Arrays and objects are compared r
 ```
 
 <a id="$gt" />
+
 __$gt__
 
 Greater than
@@ -319,6 +330,7 @@ Greater than
 ```
 
 <a id="$gte" />
+
 __$gte__
 
 Greater than or equal to
@@ -330,6 +342,7 @@ Greater than or equal to
 ```
 
 <a id="$lt" />
+
 __$lt__
 
 Less than
@@ -341,6 +354,7 @@ Less than
 ```
 
 <a id="$lte" />
+
 __$lte__
 
 Less than or equal to
@@ -352,6 +366,7 @@ Less than or equal to
 ```
 
 <a id="$regex" />
+
 __$regex__
 
 Checks for match with regular expression
@@ -367,6 +382,7 @@ If you do not need to use the regular expression flags (case insensitivity, for 
 than the bound symbols '/' can be omitted.
 
 <a id="$ceil" />
+
 __$ceil__
 
 The next highest integer
@@ -378,6 +394,7 @@ The next highest integer
 ```
 
 <a id="$floor" />
+
 __$floor__
 
 The next lowest integer
@@ -389,6 +406,7 @@ The next lowest integer
 ```
 
 <a id="$round" />
+
 __$round__
 
 Round to integer
@@ -400,6 +418,7 @@ Round to integer
 ```
 
 <a id="$ceilRH" />
+
 __$ceilRH__
 
 The next highest integer. This is a right handed operator 
@@ -420,6 +439,7 @@ The simplified form with an implicit _$eq_
 ```
 
 <a id="$floorRH" />
+
 __$floorRH__
 
 The next lowest integer. This is a right handed operator 
@@ -440,6 +460,7 @@ The simplified form with an implicit _$eq_
 ```
 
 <a id="$roundRH" />
+
 __$roundRH__
 
 Round to integer. This is a right handed operator 
@@ -462,6 +483,7 @@ The simplified form with an implicit _$eq_
 ```
 
 <a id="$mod" />
+
 __$mod__
 
 Remainder of the integer division (modulo).
@@ -474,6 +496,7 @@ The operand must be an array of two numbers: divisor and expected remainder.
 ```
 
 <a id="$sub" />
+
 __$sub__
 
 Difference between two context values
@@ -489,6 +512,7 @@ Difference between two context values
 ```
 
 <a id="$val" />
+
 __$val__
 
 Get the context value. This is a right handed operator 
@@ -512,6 +536,7 @@ The simplified form with an implicit _$eq_
 
 
 <a id="$all" />
+
 __$all__
 
 All elements of the array document context value must be members of the given operand array.
@@ -526,6 +551,7 @@ If the document context value is not an array than the operator is equivalent to
 ```
 
 <a id="$in" />
+
 __$in__
 
 The document context value must be a member of the given operand array.
@@ -549,6 +575,7 @@ The simplified form with an implicit _$in_
 ```
 
 <a id="$nin" />
+
 __$nin__
 
 The document context value must not be a member of the given operand array.
@@ -564,6 +591,7 @@ that no one of its elements is not a member of the given operand array.
 ```
 
 <a id="$and" />
+
 __$and__
 
 Logical AND to combine independent conditions.
@@ -589,6 +617,7 @@ The simplified form with an implicit _$and_
 
 
 <a id="$or" />
+
 __$or__
 
 Logical OR to combine independent conditions.
@@ -613,6 +642,7 @@ The simplified form with an implicit _$or_
 ```
 
 <a id="$nor" />
+
 __$nor__
 
 Logical NOR to combine independent conditions.
@@ -629,6 +659,7 @@ The document must not satisfy any of the combined conditions.
 ```
 
 <a id="$not" />
+
 __$not__
 
 Logical NOT to negate the result of the previous logical operation.
@@ -641,6 +672,7 @@ The operator context is passed to the next operator without changes.
 ```
 
 <a id="$ctxAnd" />
+
 __$ctxAnd__
 
 Logical AND to combine operations with shared context.
@@ -669,6 +701,7 @@ The simplified form with an implicit _$ctxAnd_
 ```
 
 <a id="$ctxOr" />
+
 __$ctxOr__
 
 Logical OR to combine operations with shared context.
