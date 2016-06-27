@@ -292,9 +292,8 @@ describe("filters.match", function () {
                     $throw: "aaaa"
                 }
             }), defaults);
-// todo:  should not fall down on exception in match
 
-            expect(filter.match({user: {level: 11}})).to.be.false;
+            expect(filter.match.bind(filter, {user: {level: 11}})).to.throw(Error);
         });
 
         it("$regex", function () {
