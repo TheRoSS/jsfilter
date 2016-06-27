@@ -13,6 +13,8 @@ There is a support for creation of the user defined filter operators.
 
 [__Filter definition object__](#fdo)
 
+[__Error handling__](#errors)
+
 ### [Custom operator creation](#createFilter)
 
 ### [Built-in operators](#filters)
@@ -142,7 +144,56 @@ __document example:__
 }
 ```
 
+<a id="errors" />
 
+### Error handling
+
+There are following exceptions in the package:
+
+__JFP_Error__
+
+The base package exception is inherited from _Error_. 
+All other exceptions in the package inherit this one.
+In corrects standard fields _message_, _name_ and _stack_.
+
+No additional fields are set.
+
+__JFP_CreateOperatorError__
+
+Filter operator creation error.
+
+Additional fields:
+
+* _data_ - the data that was used to construct the operator
+
+__JFP_ParseOperandError__
+
+Operator's operands parser error. 
+Checks whether the operand defined in the filter is correct.
+
+Additional fields:
+
+* _operator_ - the operator instance that owns the given operand
+* _operand_ - operand's definition
+
+__JFP_ParseError__
+
+Filter structure parse error.
+
+Additional fields:
+
+* _key_ - the filter object key that holds the erroneous data
+* _operand_ - the erroneous data
+
+__JFP_MatchError__
+
+Filter match error.
+
+Additional fields:
+
+* _matchOperator_ - the failed filter operator
+* _matchOperand_ - the failed operator's operand
+* _matchContext_ - the failed operator's context
 
 
 <a id="createFilter" />
