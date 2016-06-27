@@ -292,6 +292,7 @@ describe("filters.match", function () {
                     $throw: "aaaa"
                 }
             }), defaults);
+// todo:  should not fall down on exception in match
 
             expect(filter.match({user: {level: 11}})).to.be.false;
         });
@@ -549,6 +550,32 @@ describe("filters.match", function () {
 
             expect(filter.match(document1)).to.be.true;
             expect(filter.match(document2)).to.be.false;
+        });
+
+        it("$daysAfterReg:[] should be parsed to implicit $in, not $or", function () {
+            var filter =  JsonFilter.create({$daysAfterReg: [7, 28]}, defaults);
+            var document1 = {
+                ts: moment("2016-01-18").unix(),
+                user: {
+                    registrationTime: moment("2016-01-12").unix()
+                }
+            };
+            var document2 = {
+                ts: moment("2016-01-22").unix(),
+                user: {
+                    registrationTime: moment("2016-01-12").unix()
+                }
+            };
+            var document3 = {
+                ts: moment("2016-02-08").unix(),
+                user: {
+                    registrationTime: moment("2016-01-12").unix()
+                }
+            };
+
+            expect(filter.match(document1)).to.be.true;
+            expect(filter.match(document2)).to.be.false;
+            expect(filter.match(document3)).to.be.true;
         });
 
         it("$daysAfterReg the same day", function () {
