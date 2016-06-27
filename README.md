@@ -311,6 +311,7 @@ Checks whether the context is an _empty_ value
 ```
 
 The next values are considered to be _empty_:
+
 - 0
 - null
 - undefined
